@@ -92,9 +92,9 @@ Connect as root:
 ```
 sudo -i
 ```
-Setup this variable with your EDB repo credential value.
+Setup this variable with your EDB repo credential value. Make sure that the `.edbtoken` file with your token is in the repo directory AND IN YOUR `.gitignore` FILE!!
 ```
-export repo_credentials=<your_repo_token>
+export repo_credentials=(`cat /vagrant/.edbtoken`)
 ```
 Deploy PGD.
 ```
@@ -136,14 +136,6 @@ Connection Ok     All BDR nodes are accessible
 Raft       Ok     Raft Consensus is working correctly
 Replslots  Ok     All BDR replication slots are working correctly
 Version    Ok     All nodes are running same BDR versions
-
-enterprisedb@node1:~ $ pgd show-nodes
-Node  Node ID    Group        Type Current State Target State Status Seq ID
-----  -------    -----        ---- ------------- ------------ ------ ------
-node1 1148549230 dc1_subgroup data ACTIVE        ACTIVE       Up     1
-node2 3367056606 dc1_subgroup data ACTIVE        ACTIVE       Up     2
-node3 914546798  dc1_subgroup data ACTIVE        ACTIVE       Up     3
-
 
 enterprisedb@node1:~ $ pgd show-nodes
 Node  Node ID    Group        Type Current State Target State Status Seq ID

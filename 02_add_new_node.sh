@@ -13,6 +13,9 @@ if [ -z "$nodeid" ]; then
   exit 1
 fi
 
+export credentials=(`cat /vagrant/.edbtoken`)
+export EDB_SUBSCRIPTION_TOKEN=$credentials
+
 cp ~/clusters/speedy/config.yml ~/clusters/speedy/config.yml.old
 
 cat >> ~/clusters/speedy/config.yml <<EOF

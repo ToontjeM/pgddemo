@@ -6,7 +6,8 @@ then
   exit
 fi
 
-export credentials=$repo_credentials
+export credentials=(`cat /vagrant/.edbtoken`)
+export EDB_SUBSCRIPTION_TOKEN=$credentials
 
 # bat installation
 # https://www.linode.com/docs/guides/how-to-install-and-use-the-bat-command-on-linux/
@@ -17,8 +18,12 @@ sudo mv bat-v0.18.2-x86_64-unknown-linux-musl /usr/local/bat
 cd -
 # bat installation
 
-# EDB Postgres Distributed Repository setup
-curl -1sLf "https://downloads.enterprisedb.com/$credentials/postgres_distributed/setup.rpm.sh" | sudo -E bash
+# EDB Postgres Repositories setup
+dnf -y install yum-utils 
+rpm --import 'https://downloads.enterprisedb.com/pdZe6pcnWIgmuqdR7v1L38rG6Z6wJEsY/enterprise/gpg.E71EB0829F1EF813.key'
+curl -1sLf 'https://downloads.enterprisedb.com/pdZe6pcnWIgmuqdR7v1L38rG6Z6wJEsY/enterprise/config.rpm.txt?distro=el&codename=8' > /tmp/enterprise.repo
+dnf config-manager -y --add-repo '/tmp/enterprise.repo'
+dnf -q makecache -y --disablerepo='*' --enablerepo='enterprisedb-enterprise'
 
 # Install TPA and Python 3.9
 sudo dnf -y remove python3

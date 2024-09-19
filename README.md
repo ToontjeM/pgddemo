@@ -74,7 +74,7 @@ Run the demo steps according to the table below.
 | 2 |  |  | pgd show-nodes |  |
 | 3 |  |  | pgd show-groups |  |
 | 4 |  | \dt |  |  |
-| 5 |  | CREATE TABLE ping (id SERIAL PRIMARY KEY, node TEXT, timestamp TEXT); |  |  |
+| 5 |  | ```CREATE TABLE ping (id SERIAL PRIMARY KEY, node TEXT, timestamp TEXT);``` |  |  |
 | 6 |  |  |  | \dt |
 | 7 |  |  |  | select * from ping order by timestamp desc limit 10; |
 | 8 |  |  |  | \watch 1 |

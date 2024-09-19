@@ -10,9 +10,10 @@ fi
 
 if [ -z "$nodeid" ]; then
   echo "NodeId can not be empty"
-  exit 1
+  exit 
 fi
 
+source ~/.bash_profile
 export credentials=(`cat /vagrant/.edbtoken`)
 export EDB_SUBSCRIPTION_TOKEN=$credentials
 

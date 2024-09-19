@@ -117,5 +117,23 @@ node2 3367056606 dc1_subgroup data ACTIVE        ACTIVE       Up     2
 node3 914546798  dc1_subgroup data ACTIVE        ACTIVE       Up     3
 ```
 
+```
+enterprisedb@node1:~ $ pgd show-groups
+Group        Group ID   Type   Parent Group Location Raft Routing Raft Leader Write Leader
+-----        --------   ----   ------------ -------- ---- ------- ----------- ------------
+speedy       1891262000 global                       true false   node3
+dc1_subgroup 1302278103 data   speedy       dc1      true true    node1       node3
+```
+
+```
+enterprisedb@node1:~ $ pgd show-version
+Node  BDR Version Postgres Version
+----  ----------- ----------------
+node1 5.5.1       14.13.1
+node2 5.5.1       14.13.1
+node3 5.5.1       14.13.1
+node4 5.5.1       15.8.1
+```
+
 ## Deprovisioning the demo environment
 To deprovision the demo environment you can either run `99_deprovision.sh` or simply run a `vagrant destroy -f`.

@@ -69,7 +69,7 @@ You are now ready to run the demo.
 Run the demo steps according to the table below.
 | Step | Pane 1 | Pane 2 | Pane 3 | Pane 4 |
 | -- | -------- | ----- | -------- | -------- |
-| 1 | `./os_version.sh`| | | `vagrant ssh node4` |
+| 1 | `./os_version.sh`| | |  |
 | 2 |  |  | `pgd check-health` |  |
 | 2 |  |  | `pgd show-nodes` |  |
 | 3 |  |  | `pgd show-groups` |  |
@@ -78,7 +78,7 @@ Run the demo steps according to the table below.
 | 6 |  |  |  | `\dt` |
 | 7 |  |  |  | `select * from ping order by timestamp desc limit 10;` |
 | 8 |  |  |  | `\watch 1` |
-| 9 |  |  | `cat pgd_demo_app.sql` |  |
+| 9 |  |  | `cat pgd-demo-app.sql` |  |
 | 10 |  |  | `./testapp.sh` |  |
 | 11 |  | `sudo systemctl stop postgresql.service` |  |  |
 | 12 | `sudo su - enterprisedb` |  |  |  |
